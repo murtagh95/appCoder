@@ -34,10 +34,13 @@
 
   <body>
     <!-- Navigation-->
-    <nav class="navbar navbar-light bg-light static-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
       <div class="container">
-        <a class="navbar-brand" href="{% url 'inicio' %}">Coder House</a>
-        <div>
+        <a class="navbar-brand fw-bold" href="{% url 'inicio' %}"
+          >Coder House</a
+        >
+
+        <div class="d-flex flex-wrap align-items-center">
           <a class="btn btn-outline-primary mx-1" href="{% url 'inicio' %}"
             >Inicio</a
           >
@@ -53,13 +56,25 @@
           <a class="btn btn-outline-primary mx-1" href="{% url 'entregables' %}"
             >Entregables</a
           >
-          <form action="/app/buscar/" method="GET">
 
-    <input type="number" name="camada" id="camada">
-
-    <input type="submit" value="Buscar">
-
-</form>
+          <form
+            class="d-flex align-items-center ms-3"
+            action="/app/buscar/"
+            method="GET"
+          >
+            <div class="input-group">
+              <input
+                type="number"
+                class="form-control form-control-sm"
+                name="camada"
+                id="camada"
+                placeholder="Buscar camada"
+              />
+              <button class="btn btn-outline-secondary btn-sm" type="submit">
+                Buscar
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </nav>

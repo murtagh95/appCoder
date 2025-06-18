@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
-from .models import Estudiante, Profesor, Curso, Entregable
-from .forms import CursoFormulario, ProfesorFormulario
+from ..models import Estudiante, Profesor, Curso, Entregable
+from ..forms import CursoFormulario, ProfesorFormulario
 
 def lista_estudiantes(request):
     estudiantes = Estudiante.objects.all()
@@ -41,22 +41,6 @@ def entregables(request):
 #             return render(request, "AppCoder/index.html")
 #       return render(request, "AppCoder/formulario/cursoFormulario.html")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 def cursoFormulario2(request):
       if request.method == "POST":
             miFormulario = CursoFormulario(request.POST) # Aqui me llega la informacion del html
@@ -70,66 +54,6 @@ def cursoFormulario2(request):
             miFormulario = CursoFormulario()
  
       return render(request, "AppCoder/formulario/cursoFormulario2.html", {"miFormulario": miFormulario})
-
-
-
-
-
-
-def profesorFormulario(request):
-
-    if request.method == 'POST':
-        miFormulario = ProfesorFormulario(request.POST)  # aquí llega toda la información del html
-        if miFormulario.is_valid():  # Si pasó la validación de Django
-            informacion = miFormulario.cleaned_data
-            profesor = Profesor(
-                nombre=informacion['nombre'],
-                apellido=informacion['apellido'],
-                email=informacion['email'],
-                profesion=informacion['profesion']
-            )
-            profesor.save()
-            return render(request, "AppCoder/index.html")  # Vuelvo al inicio o a donde quieran
-    else:
-        miFormulario = ProfesorFormulario()  # Formulario vacío para construir el html
-
-    return render(request, "AppCoder/formulario/profesorFormulario.html", {"miFormulario": miFormulario})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 def busquedaCamada(request):
