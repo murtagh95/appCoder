@@ -30,3 +30,4 @@ temp/
 .vscode/
 coverage/
 *__pycache__*
+/media
